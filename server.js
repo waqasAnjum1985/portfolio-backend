@@ -50,3 +50,5 @@ app.use((req, res, next) => {
   connectDB();
   console.log(`SERVER is running at http://localhost:${PORT}`);
 });*/
+
+module.exports = app;

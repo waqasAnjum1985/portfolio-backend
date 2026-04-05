@@ -8,8 +8,8 @@ const PORT = process.env.PORT;
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const connectDB = require("./db/conn.js");
-const portfolioRouter = require("./routes/portfolioRoute.js");
+const connectDB = require("../db/conn.js");
+const portfolioRouter = require("../routes/portfolioRoute.js");
 const mongoose = require("mongoose");
 
 const corsOptions = {

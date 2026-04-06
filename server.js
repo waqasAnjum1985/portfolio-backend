@@ -23,10 +23,12 @@ app.use(express.json());
 
 app.use("/api/portfolio", portfolioRouter);
 
-
+app.get("/", (res, req) => {
+  res.send("SERVER IS RUNNING");
+});
 
 //for vercel only as vercel is server less,will remain comment out in case of local host
-const mongoURL = process.env.MONGO_CONN;
+/*const mongoURL = process.env.MONGO_CONN;
 
 let isConnected;
 
@@ -45,12 +47,12 @@ app.use((req, res, next) => {
     connectMongo();
   }
   next();
-});
+});*/
 
 //for local host server , will remain comment out in case of production
-/*app.listen(PORT, () => {
+app.listen(PORT, () => {
   connectDB();
   console.log(`SERVER is running at http://localhost:${PORT}`);
-});*/
+});
 
 module.exports = app;

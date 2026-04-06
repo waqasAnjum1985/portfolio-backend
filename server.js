@@ -23,9 +23,7 @@ app.use(express.json());
 
 app.use("/api/portfolio", portfolioRouter);
 
-app.get("/", (res, req) => {
-  res.send("SERVER IS RUNNING");
-});
+
 
 //for vercel only as vercel is server less,will remain comment out in case of local host
 /*const mongoURL = process.env.MONGO_CONN;

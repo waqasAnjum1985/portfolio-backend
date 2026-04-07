@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 //for vercel only as vercel is server less,will remain comment out in case of local host
-const mongoURL = process.env.MONGO_CONN;
+/*const mongoURL = process.env.MONGO_CONN;
 
 let isConnected;
 
@@ -44,14 +44,14 @@ app.use((req, res, next) => {
 });
 app.get("/", (res, req) => {
   res.send("SERVER IS RUNNING");
-});
+});*/
 
 app.use("/api/portfolio", portfolioRouter);
 
 //for local host server , will remain comment out in case of production
-/*app.listen(PORT, () => {
+app.listen(PORT, () => {
   connectDB();
   console.log(`SERVER is running at http://localhost:${PORT}`);
-});*/
+});
 
-module.exports = app;
+//module.exports = app;

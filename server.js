@@ -8,8 +8,8 @@ const PORT = process.env.PORT;
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const connectDB = require("../db/conn.js");
-const portfolioRouter = require("../routes/portfolioRoute.js");
+const connectDB = require("./db/conn.js");
+const portfolioRouter = require("./routes/portfolioRoute.js");
 const mongoose = require("mongoose");
 
 const corsOptions = {
@@ -20,10 +20,6 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.use(express.json());
-
-
-
-
 
 //for vercel only as vercel is server less,will remain comment out in case of local host
 const mongoURL = process.env.MONGO_CONN;
@@ -50,7 +46,7 @@ app.get("/", (res, req) => {
   res.send("SERVER IS RUNNING");
 });
 
-//app.use("/api/portfolio", portfolioRouter);
+app.use("/api/portfolio", portfolioRouter);
 
 //for local host server , will remain comment out in case of production
 /*app.listen(PORT, () => {

@@ -46,7 +46,7 @@ app.get("/", (res, req) => {
   res.send("SERVER IS RUNNING");
 });*/
 
-app.use("/api/portfolio", portfolioRouter);
+app.use("/", portfolioRouter);
 
 //for local host server , will remain comment out in case of production
 app.listen(PORT, () => {

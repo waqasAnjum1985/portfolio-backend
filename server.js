@@ -21,31 +21,6 @@ app.use(cookieParser());
 
 app.use(express.json());
 
-//for vercel only as vercel is server less,will remain comment out in case of local host
-/*const mongoURL = process.env.MONGO_CONN;
-
-let isConnected;
-
-const connectMongo = async () => {
-  try {
-    await mongoose.connect(mongoURL);
-    isConnected = true;
-    console.log("Mongo DB connected successfully...");
-  } catch (err) {
-    console.log("err while connecting Mongo DB", err);
-  }
-};
-
-app.use((req, res, next) => {
-  if (!isConnected) {
-    connectMongo();
-  }
-  next();
-});
-app.get("/", (res, req) => {
-  res.send("SERVER IS RUNNING");
-});*/
-
 app.use("/api/portfolio", portfolioRouter);
 
 //for local host server , will remain comment out in case of production

@@ -46,7 +46,7 @@ app.get("/", (res, req) => {
   res.send("SERVER IS RUNNING");
 });*/
 
-app.use("/", portfolioRouter);
+app.use("/api/portfolio", portfolioRouter);
 
 //for local host server , will remain comment out in case of production
 app.listen(PORT, () => {
@@ -54,4 +54,4 @@ app.listen(PORT, () => {
   console.log(`SERVER is running at http://localhost:${PORT}`);
 });
 
-//module.exports = app;
+module.exports = app;

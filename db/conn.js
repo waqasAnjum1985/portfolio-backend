@@ -13,11 +13,14 @@ const connectDB = async () => {
     console.log("err while connecting Mongo DB", err);
   }
 };
-exports.connectionDropped = (req, res, next) => {
+const connectionDropped = (req, res, next) => {
   if (!isConnected) {
     connectMongo();
   }
   next();
 };
 
-module.exports = connectDB;
+module.exports = {
+  connectDB,
+  connectionDropped,
+};

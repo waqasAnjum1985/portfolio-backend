@@ -8,10 +8,10 @@ const PORT = process.env.PORT;
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const connectDB = require("./db/conn.js");
+const { connectDB } = require("./db/conn.js");
 const portfolioRouter = require("./routes/portfolioRoute.js");
 const mongoose = require("mongoose");
-
+const { connectionDropped } = require("./db/conn.js");
 const corsOptions = {
   origin: "http://localhost:5173",
   credentials: true,
@@ -21,12 +21,12 @@ app.use(cookieParser());
 
 app.use(express.json());
 
-app.use("/api/portfolio", portfolioRouter);
+app.use("/api/portfolio", connectionDropped, portfolioRouter);
 
 //for local host server , will remain comment out in case of production
-app.listen(PORT, () => {
+/*app.listen(PORT, () => {
   connectDB();
   console.log(`SERVER is running at http://localhost:${PORT}`);
-});
+});*/
 
 module.exports = app;

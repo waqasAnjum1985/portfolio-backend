@@ -17,12 +17,12 @@ const {
   adminLogin,
   adminLogout,
 } = require("../controllers/portfolioController");
-const  connectionDropped  = require("../db/conn");
+
 const { middleware } = require("../middleWares/middleware");
 
 const portfolioRouter = express.Router();
 // all data
-portfolioRouter.get("/get-portfolio-data", connectionDropped, getPortfolioData);
+portfolioRouter.get("/get-portfolio-data", getPortfolioData);
 //update intro
 portfolioRouter.post("/update-intro", middleware, updateIntro);
 //update intro

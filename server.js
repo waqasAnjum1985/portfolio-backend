@@ -21,6 +21,7 @@ app.use(cookieParser());
 
 app.use(express.json());
 
+app.get("/api/portfolio", connectionDropped, portfolioRouter);
 app.use("/api/portfolio", connectionDropped, portfolioRouter);
 
 //for local host server , will remain comment out in case of production
